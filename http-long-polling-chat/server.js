@@ -29,7 +29,7 @@ var getPrefix = function () {
     return '[' + timestamp + '] ';
 };
 
-// Store the message in the database and send the queued responses.
+// Store the message in the database and send the enqueued responses.
 var storeMessage = function (message) {
     messages.push(message);
     sendQueuedResponses();
@@ -38,15 +38,24 @@ var storeMessage = function (message) {
 // Create a response queue.
 var responses = [];
 
-// Removes each response from the queue and sends it with all messages.
+// Dequeues the response passed in.
+var dequeueResponse = function (response) {
+    console.log(getPrefix() + 'Dequeuing response.');
+    responses = responses.filter(function(enqueuedResponse) {
+        return enqueuedResponse !== response;
+    });
+    console.log(getPrefix() + 'Number of enqueued responses:', responses.length);
+};
+
+// Dequeues each response and sends it with all messages.
 var sendQueuedResponses = function () {
     var i = 0;
     while (responses.length > 0) {
-        console.log(getPrefix() + 'Sending queued response (' + ++i + ')');
+        console.log(getPrefix() + 'Sending all messages via enqueued response (' + ++i + ')');
         var res = responses.shift();
         res.send(messages);
     }
-}
+};
 
 // Respond with all messages.
 app.get('/join', function (req, res) {
@@ -55,12 +64,21 @@ app.get('/join', function (req, res) {
     res.send(messages);
 });
 
-// Queue the response associated with this request.
+// Enqueue the response associated with this request.
 app.get('/messages', function (req, res) {
     console.log(getPrefix() + 'GET /messages');
 
+    // Enqueue the response immediately.
+    console.log(getPrefix() + 'Enqueuing response.');
     responses.push(res);
-    console.log(getPrefix() + 'Number of queued responses:', responses.length);
+    console.log(getPrefix() + 'Number of enqueued responses:', responses.length);
+
+    // Dequeue the response when the TCP connection associated with it closes.
+    // (Reference: https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_event_close_1)
+    //
+    res.on('close', function () {
+        dequeueResponse(res);
+    });
 });
 
 // Insert message into the database (if valid) and respond with all messages.
