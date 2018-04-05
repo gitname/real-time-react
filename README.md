@@ -67,6 +67,18 @@ Consider:
 
 ## Using Wireshark
 
+### Filtering displayed traffic
+
+#### Examples
+
+* Display only traffic that is both HTTP and either to or from 123.123.123.123
+
+    ```
+    http and ip.addr == 123.123.123.123
+    ```
+
+More examples are available on the [Wireshark wiki](https://wiki.wireshark.org/DisplayFilters#Examples).
+
 ### WinPcap driver
 
 #### Starting the WinPcap driver service
