@@ -1,17 +1,19 @@
 $(document).ready(function () {
 
     // Populate the message list DOM element with the messages stored in the array passed in.
-    var populateMessageList = function(messages) {
-            
+    var populateMessageList = function (messages) {
+
         // Cache the jQuery selection result.
         var $messageList = $('#message-list');
 
         // Populate the message list.
         $messageList.empty();
-        $.each(messages, function(index, message) {
+        $.each(messages, function (index, message) {
             $messageList.append('<li class="message">' + message + '</li>');
         });
 
+        // Scroll to bottom of element.
+        $messageList.scrollTop($messageList.prop('scrollHeight'));
     };
 
     // Retrieve all the messages from the server and populate the message list DOM element with them.
@@ -32,7 +34,7 @@ $(document).ready(function () {
     };
 
     // Handle the `submit` event dispatched by the form.
-    var handleFormSubmission = function(event) {
+    var handleFormSubmission = function (event) {
 
         // Cache the jQuery selection result.
         var $messageInput = $('#message-input');
