@@ -67,7 +67,7 @@ var ws = new WebSocket('ws://localhost');
 
 // Prepare to display incoming messages on the console.
 ws.addEventListener('message', function (event) {
-    console.log('Message from server: ' + event.data);
+    console.log('Client received message: ' + event.data);
 });
 ```
 
