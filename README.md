@@ -59,7 +59,7 @@ Terminate the app by pressing `Ctrl+C`.
 
 This app does not include a client.
 
-While the server is running, issue the following instructions using the JavaScript console in Chrome Developer Tools:
+While the server is running, issue the following instructions using the JavaScript console in Chrome Developer Tools, replacing `localhost` with the real hostname or IP address of the server:
 
 ```js
 // Establish a WebSocket connection with the host.
