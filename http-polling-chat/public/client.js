@@ -24,10 +24,13 @@ $(document).ready(function () {
             type: 'GET',
             url: '/messages',
             success: function (messages) {
-                console.log('Received all messages from server: ', messages);
+                console.log('Retrieved all messages from server: ', messages);
 
-                // Populate the message list with the received messages.
+                // Populate the message list with the retrieved messages.
                 populateMessageList(messages);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log('Failed to retrieve all messages from server.', textStatus, errorThrown);
             }
         });
 
@@ -52,13 +55,16 @@ $(document).ready(function () {
             data: payload,
             success: function (messages) {
                 console.log('Sent payload to server: ', payload)
-                console.log('Received all messages from server: ', messages);
+                console.log('Retrieved all messages from server: ', messages);
 
-                // Populate the message list with the received messages.
+                // Populate the message list with the retrieved messages.
                 populateMessageList(messages);
 
                 // Clear the message input.
                 $messageInput.val('');
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log('Failed to send payload and/or retrieve all messages from server.', textStatus, errorThrown);
             }
         });
 
