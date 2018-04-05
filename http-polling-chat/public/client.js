@@ -1,10 +1,6 @@
 $(document).ready(function () {
 
-    /**
-     * Populate the message list DOM element using the messages passed in.
-     * 
-     * @param {Array} messages
-     */
+    // Populate the message list DOM element with the messages stored in the array passed in.
     var populateMessageList = function(messages) {
             
         // Cache the jQuery selection result.
@@ -18,9 +14,7 @@ $(document).ready(function () {
 
     };
 
-    /**
-     * Retrieve all the messages from the server and populate the message list with them.
-     */
+    // Retrieve all the messages from the server and populate the message list DOM element with them.
     var refreshMessageList = function () {
 
         // Submit a GET request.
@@ -37,9 +31,7 @@ $(document).ready(function () {
 
     };
 
-    /**
-     * Handle the `submit` event dispatched by the form.
-     */
+    // Handle the `submit` event dispatched by the form.
     var handleFormSubmission = function(event) {
 
         // Cache the jQuery selection result.

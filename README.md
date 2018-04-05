@@ -4,13 +4,16 @@ Real-Time React: An Introduction to Socket.io
 # Running each app
 
 Navigate to the subfolder in which the app's `server.js` file resides, then run:
-```
-C:\AppFolder\> npm start server.js
+
+```batch
+C:\AppFolder\>set PORT=3000&& npm start server.js
 ```
 Or, if making frequent changes to the files in the app's file tree:
+
+```batch
+C:\AppFolder\>set PORT=3000&& npx nodemon start server.js
 ```
-C:\AppFolder\> npx nodemon start server.js
-```
+| The absence of whitespace between the environment variable and the pair of empersands is intentional, since the environment variable gets set to everything until the ampersand. The whitespace between the pair of ampersands and the subsequent command is also intentional, but is optional.
 
 Then, in a web browser, visit the app at http://localhost:3000/.
 
@@ -37,7 +40,8 @@ Consider:
 When running Wireshark as a non-Administrator in Windows, you may have to manually start the WinPcap driver service in order for any network interfaces to appear in Wireshark.
 
 To start it, open a command prompt as an administrative user (i.e. right-click the `cmd.exe` icon and select "Run as Administrator") and issue the following command:
-```
+
+```bat
 C:\> net start npf
 
 The NetGroup Packet Filter Driver service was started successfully.
@@ -48,7 +52,8 @@ The NetGroup Packet Filter Driver service was started successfully.
 Exiting Wireshark does not automatically stop the driver service.
 
 To stop it, open a command prompt as an administrative user and issue the following command:
-```
+
+```bat
 C:\> net stop npf
 
 The NetGroup Packet Filter Driver service was stopped successfully.
