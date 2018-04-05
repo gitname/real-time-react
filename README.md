@@ -80,6 +80,10 @@ ws.send('Hello from the client.');
 
 Terminate the app by pressing `Ctrl+C`.
 
+### Aspects of Interest
+
+1. When establishing the WebSocket connection, the client sends one HTTP request to the server. That HTTP request contains specific fields and values in its header. Those fields and values tell the server the client wants to follow the WebSocket protocol instead of the HTTP protocol. (That HTTP request can be seen in the `Network` tab of the Chrome Developer Tools, and in Wireshark).
+
 # Evaluating each app
 
 Consider:
@@ -99,6 +103,10 @@ Consider:
 #### Pending requests
 
 On the `Network` tab, notice the `Status` of requests. Requests for which a response hasn't arrived yet have a status of `pending`. More details are available at `chrome://net-internals/#events`.
+
+#### WebSocket frames
+
+On the `Network` tab, click on an HTTP request that was used to change to the WebSocket protocol, then select the `Frames` tab. That tab lists all the WebSocket frames that have been sent or received via _that_ WebSocket connection.
 
 ## Using Wireshark
 
