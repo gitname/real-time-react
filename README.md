@@ -17,7 +17,7 @@ Or, if making frequent changes to the files in the app's file tree:
 ```batch
 C:\AppFolder\>set PORT=3000&& npx nodemon start server.js
 ```
-| The absence of whitespace between the environment variable and the pair of empersands is intentional, since the environment variable gets set to everything until the ampersand. The whitespace between the pair of ampersands and the subsequent command is also intentional, but is optional.
+> The **absence of whitespace** between the environment variable definition and the pair of ampersands is required, since the environment variable gets set to everything between the equals sign and the ampersand. The **presence of whitespace** between the pair of ampersands and the subsequent command is optional.
 
 Then, in a web browser, visit the app at http://localhost:3000/.
 
