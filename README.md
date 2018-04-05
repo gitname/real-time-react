@@ -156,3 +156,13 @@ The NetGroup Packet Filter Driver service was stopped successfully.
 ```
 
 Reference: https://wiki.wireshark.org/CaptureSetup/CapturePrivileges
+
+## RFCs
+
+* [RFC 1945: Hypertext Transfer Protocol -- HTTP/1.0](https://tools.ietf.org/html/rfc1945)
+* [RFC 2616: Hypertext Transfer Protocol -- HTTP/1.1](https://tools.ietf.org/html/rfc2616)
+* [RFC 6466: The WebSocket Protocol](https://tools.ietf.org/html/rfc6455)
+
+## Packages/Repositories
+
+* [ws: a Node.js WebSocket library](https://github.com/websockets/ws)
