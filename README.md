@@ -78,6 +78,8 @@ Followed shortly thereafter by this instruction:
 ws.send('Hello from the client.');
 ```
 
+Terminate the app by pressing `Ctrl+C`.
+
 # Evaluating each app
 
 Consider:
