@@ -98,7 +98,8 @@ Consider:
     * Use Chrome Developer Tools > Network tab: bottom status bar (e.g. "123 requests")
 * The size of each HTTP request it submits / response it receives
     * Use Chrome Developer Tools > Network tab: bottom status bar (e.g. "456 KB transferred")
-* The latency; i.e. the delay between a message being created and that message being displayed
+* How many times it establishes a TCP connection (considering the overhead involved in doing so)
+* The latency (i.e. stimulus-response delay); e.g. the delay between a message being created and that message being displayed
 * The complexity of the implementation
 
 # Miscellaneous Notes
