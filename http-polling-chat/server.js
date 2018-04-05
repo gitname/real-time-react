@@ -20,8 +20,8 @@ var validateMessage = function (message) {
     return message.trim().length > 0;
 };
 
-// Returns the current time (in UTC) as a string.
-var getTimestampPrefix = function () {
+// Returns the current UTC time sn a string designed to precede a log message.
+var getPrefix = function () {
     var timestamp = (new Date())
         .toISOString()
         .substr(-13)
@@ -29,29 +29,26 @@ var getTimestampPrefix = function () {
     return '[' + timestamp + '] ';
 };
 
+// Respond with all messages.
 app.get('/messages', function (req, res) {
-    console.log(getTimestampPrefix() + 'GET /messages');
-
-    // Respond with all messages in the database.
+    console.log(getPrefix() + 'GET /messages');
     res.send(messages);
 });
 
+// Insert message into the database (if valid) and respond with all messages.
 app.post('/messages/create', function (req, res) {
-    console.log(getTimestampPrefix() + 'POST /messages/create', req.body);
+    console.log(getPrefix() + 'POST /messages/create', req.body);
 
-    // Insert the message into the database if the message string is valid.
     var message = req.body.message;
     if (validateMessage(message)) {
         messages.push(message);
     }
 
-    // Respond with all messages in the database.
     res.send(messages);
 });
 
 // Configure the app to listen on some TCP port (number 80 by default).
-//
 var port = process.env.PORT || 80;
 app.listen(port, function () {
-    console.log(getTimestampPrefix() + 'The app is listening on port ' + port + '.');
+    console.log(getPrefix() + 'The app is listening on port ' + port + '.');
 });
