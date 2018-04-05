@@ -79,6 +79,6 @@ $(document).ready(function () {
     refreshMessageList();
 
     // Refresh the message list every few seconds.
-    window.setInterval(refreshMessageList, 2000);
+    window.setInterval(refreshMessageList, 10000);
 
 });
