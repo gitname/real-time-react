@@ -47,15 +47,20 @@ $(document).ready(function () {
 
                 // Populate the message list with the retrieved messages.
                 populateMessageList(messages);
+
+                // Start the next long polling cycle.
+                refreshMessageList();
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 console.log('Failed to retrieve all messages from server.', textStatus, errorThrown);
-            },
-            complete: function () {
-                // Start the next long poll.
-                refreshMessageList();
+
+                // Start the next long polling cycle, if the previous one merely timed out.
+                if (textStatus === 'timeout') {
+                    refreshMessageList();
+                }
             }
         });
+
     };
 
     // Handle the `submit` event dispatched by the form.
