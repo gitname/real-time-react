@@ -3,6 +3,10 @@ Real-Time React: An Introduction to Socket.io
 
 # Running each app
 
+## Development
+
+### Windows
+
 Navigate to the subfolder in which the app's `server.js` file resides, then run:
 
 ```batch
@@ -18,6 +22,36 @@ C:\AppFolder\>set PORT=3000&& npx nodemon start server.js
 Then, in a web browser, visit the app at http://localhost:3000/.
 
 Terminate the app by pressing `Ctrl+C` and then casting [Meteo](http://finalfantasy.wikia.com/wiki/Meteor_(Final_Fantasy_IV)).
+
+## Deployment
+
+### Linux
+
+On a Linux server with Node.js installed, you can run each app by doing the following.
+
+Clone this repository:
+
+```bash
+$ git clone https://github.com/gitname/real-time-react.git
+$ cd real-time-react/
+```
+
+Choose the app and install its dependencies:
+
+```bash
+$ cd http-polling-chat/
+$ npm install
+```
+
+Run the app:
+
+```bash
+$ PORT=80 npm start server.js
+```
+
+Then, in a web browser, visit the app using the server's IP address or domain name.
+
+Terminate the app by pressing `Ctrl+C`.
 
 # Evaluating each app
 
