@@ -75,6 +75,9 @@ $(document).ready(function () {
     // Associate the form submission event handler with the form's `submit` event.
     $('#message-form').on('submit', handleFormSubmission);
 
+    // Refresh the message list immediately.
+    refreshMessageList();
+
     // Refresh the message list every few seconds.
     window.setInterval(refreshMessageList, 2000);
 
