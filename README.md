@@ -71,7 +71,14 @@ ws.addEventListener('message', function (event) {
 });
 ```
 
-Followed shortly thereafter by this instruction:
+You can examine the state of the WebSocket connection by running the following (and comparing the output to [the list of readyState constants on the MDN website](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket#Ready_state_constants)):
+
+```js
+// Read the state of the connection. Manually compare it to the readyState constants on the MDN website.
+ws.readyState
+```
+
+You can send a message via the WebSocket connection by running the following:
 
 ```js
 // Send a message via the WebSocket connection.
