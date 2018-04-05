@@ -60,8 +60,8 @@ $(document).ready(function () {
                 // Populate the message list with the retrieved messages.
                 populateMessageList(messages);
 
-                // Clear the message input.
-                $messageInput.val('');
+                // Clear the message input and focus on it.
+                $messageInput.val('').focus();
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 console.log('Failed to send payload and/or retrieve all messages from server.', textStatus, errorThrown);
