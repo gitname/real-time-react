@@ -53,6 +53,31 @@ Then, in a web browser, visit the app using the server's IP address or domain na
 
 Terminate the app by pressing `Ctrl+C`.
 
+# Using each app
+
+## ws-barebones
+
+This app does not include a client.
+
+While the server is running, issue the following instructions using the JavaScript console in Chrome Developer Tools:
+
+```js
+// Establish a WebSocket connection with the host.
+var ws = new WebSocket('ws://localhost');
+
+// Prepare to display incoming messages on the console.
+ws.addEventListener('message', function (event) {
+    console.log('Message from server: ' + event.data);
+});
+```
+
+Followed shortly thereafter by this instruction:
+
+```js
+// Send a message via the WebSocket connection.
+ws.send('Hello from the client.');
+```
+
 # Evaluating each app
 
 Consider:
