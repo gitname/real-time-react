@@ -20,15 +20,24 @@ var validateMessage = function (message) {
     return message.trim().length > 0;
 };
 
+// Returns the current time (in UTC) as a string.
+var getTimestampPrefix = function () {
+    var timestamp = (new Date())
+        .toISOString()
+        .substr(-13)
+        .substr(0, 12);
+    return '[' + timestamp + '] ';
+};
+
 app.get('/messages', function (req, res) {
-    console.log('GET /messages');
+    console.log(getTimestampPrefix() + 'GET /messages');
 
     // Respond with all messages in the database.
     res.send(messages);
 });
 
 app.post('/messages/create', function (req, res) {
-    console.log('POST /messages/create', req.body);
+    console.log(getTimestampPrefix() + 'POST /messages/create', req.body);
 
     // Insert the message into the database if the message string is valid.
     var message = req.body.message;
@@ -44,5 +53,5 @@ app.post('/messages/create', function (req, res) {
 //
 var port = process.env.PORT || 80;
 app.listen(port, function () {
-    console.log('The app is listening on port ' + port + '.');
+    console.log(getTimestampPrefix() + 'The app is listening on port ' + port + '.');
 });
