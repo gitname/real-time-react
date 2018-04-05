@@ -65,6 +65,14 @@ Consider:
 
 # Miscellaneous Notes
 
+## Using Chrome
+
+### Developer Tools
+
+#### Pending requests
+
+On the `Network` tab, notice the `Status` of requests. Requests for which a response hasn't arrived yet have a status of `pending`. More details are available at `chrome://net-internals/#events`.
+
 ## Using Wireshark
 
 ### Filtering displayed traffic
