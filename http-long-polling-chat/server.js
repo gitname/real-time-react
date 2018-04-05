@@ -63,7 +63,7 @@ app.get('/messages', function (req, res) {
     console.log(getPrefix() + 'Number of queued responses:', responses.length);
 });
 
-// Insert message into the database (if valid)  and respond with all messages.
+// Insert message into the database (if valid) and respond with all messages.
 app.post('/messages/create', function (req, res) {
     console.log(getPrefix() + 'POST /messages/create', req.body);
 
