@@ -1,0 +1,23 @@
+#message-list {
+    border: 1px solid black;
+    margin: 10px;
+    height: 300px;
+    overflow-y: scroll;
+    padding: 0;
+    list-style-type: none;
+}
+
+.message {
+    min-height: 1em;
+    margin: 2px;
+    padding: 4px;
+}
+
+.message:nth-child(odd)
+{
+    background-color: whitesmoke;
+}
+
+#message-form {
+    text-align: right;
+}
