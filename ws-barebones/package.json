@@ -4,12 +4,22 @@
   "description": "WebSocket Barebones",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "concurrently --kill-others \"npm run start-server\" \"npm run start-client\"",
+    "start-server": "node server.js",
+    "start-client": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "author": "",
   "license": "UNLICENSED",
   "dependencies": {
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
+    "react-scripts": "1.1.4",
     "ws": "^5.1.1"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1"
   }
 }
