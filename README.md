@@ -1,6 +1,12 @@
 # real-time-react
 Real-Time React: An Introduction to Socket.io
 
+## Introduction
+
+This repository contains several "toy" apps used to demonstrate strategies people have used to achieve real-time, web-based client-server communication. The strategies include HTTP polling, HTTP long polling, and WebSockets.
+
+How's this related to socket.io? socket.io chooses between WebSockets, HTTP long polling, and other strategies, depending upon which strategies are supported by the environment in which socket.io is running.
+
 # Running each app
 
 ## HTTP Polling Chat
@@ -162,3 +168,11 @@ Reference: https://wiki.wireshark.org/CaptureSetup/CapturePrivileges
 ## Packages/Repositories
 
 * [ws: a Node.js WebSocket library](https://github.com/websockets/ws)
+
+# Notes from presentation/event
+
+* **Rephrase** - an app built using both React and socket.io: https://github.com/Frankcarvajal/rephrase-v2.0.0
+* **React-JSON-Grid** - A React component people can use to display and edit JSON data: https://github.com/jason-henriksen/react-json-grid
+* **Prettier** - a VSCode extension someone recommended for prettifying code: https://github.com/prettier/prettier-vscode
+* **Format-on-Save** - a VSCode setting someone recommended for ensuring code adheres to formatting rules upon save: https://code.visualstudio.com/updates/v1_22#_configurable-format-on-save-timeout
+* **Pusher** - a service someone recommended for building real-time features of web applications: https://pusher.com/
