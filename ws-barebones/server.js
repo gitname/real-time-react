@@ -25,5 +25,3 @@ wsServer.on('connection', function (ws) {
 });
 
 console.log('Server is listening.');
-
-console.log('Contribute to this: https://github.com/jason-henriksen/react-json-grid');
