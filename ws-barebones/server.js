@@ -1,5 +1,5 @@
 var WebSocket = require('ws');
-var wsServer = new WebSocket.Server({ port: process.env.PORT || 80 });
+var wsServer = new WebSocket.Server({ port: process.env.PORT || 3001 });
 
 wsServer.on('connection', function (ws) {
 
