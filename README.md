@@ -3,93 +3,88 @@ Real-Time React: An Introduction to Socket.io
 
 # Running each app
 
-## Development
+## HTTP Polling Chat
 
-### Windows
+```bash
+# Download app code and install dependencies.
+$ git clone https://github.com/gitname/real-time-react.git
+$ cd real-time-react/http-polling-chat/
+$ npm install
 
-Navigate to the subfolder in which the app's `server.js` file resides, then run:
-
-```batch
-C:\AppFolder\>set PORT=3000&& npm start server.js
+# Run the app.
+# If using Linux shell:
+$ PORT=3000 && npm start
+# If using Windows terminal:
+> set PORT=3000&& npm start
 ```
-Or, if making frequent changes to the files in the app's file tree:
 
-```batch
-C:\AppFolder\>set PORT=3000&& npx nodemon start server.js
-```
-> The **absence of whitespace** between the environment variable definition and the pair of ampersands is required, since the environment variable gets set to everything between the equals sign and the ampersand. The **presence of whitespace** between the pair of ampersands and the subsequent command is optional.
+> A note regarding the Windows terminal command: The **absence of whitespace** between the environment variable definition and the pair of ampersands is required, since the environment variable gets set to everything between the equals sign and the ampersand.
 
 Then, in a web browser, visit the app at http://localhost:3000/.
 
-Terminate the app by pressing `Ctrl+C` and then casting [Meteo](http://finalfantasy.wikia.com/wiki/Meteor_(Final_Fantasy_IV)).
+Terminate the app by pressing `Ctrl+C`.
 
-## Deployment
-
-### Linux
-
-On a Linux server with Node.js installed, you can run each app by doing the following.
-
-Clone this repository:
+## HTTP Long Polling Chat
 
 ```bash
+# Download app code and install dependencies.
 $ git clone https://github.com/gitname/real-time-react.git
-$ cd real-time-react/
-```
-
-Choose the app and install its dependencies:
-
-```bash
-$ cd http-polling-chat/
+$ cd real-time-react/http-long-polling-chat/
 $ npm install
+
+# Run the app.
+# If using Linux shell:
+$ PORT=3000 && npm start
+# If using Windows terminal:
+> set PORT=3000&& npm start
 ```
 
-Run the app:
+> A note regarding the Windows terminal command: The **absence of whitespace** between the environment variable definition and the pair of ampersands is required, since the environment variable gets set to everything between the equals sign and the ampersand.
+
+Then, in a web browser, visit the app at http://localhost:3000/.
+
+Terminate the app by pressing `Ctrl+C`.
+
+## WebSocket Barebones
+
+Update: Thanks to [@benshell](https://github.com/benshell), this app now includes a client.
 
 ```bash
-$ PORT=80 npm start server.js
+# Download app code and install dependencies.
+$ git clone https://github.com/gitname/real-time-react.git
+$ cd real-time-react/ws-barebones/
+$ npm install
+
+# Run the app.
+# If using Linux shell:
+$ npm start
+# If using Windows terminal:
+> npm start
 ```
 
-Then, in a web browser, visit the app using the server's IP address or domain name.
+Then, in a web browser, visit the app at http://localhost:3000/.
 
 Terminate the app by pressing `Ctrl+C`.
 
-# Using each app
+# Developing each app
 
-## ws-barebones
+## Using nodemon
 
-This app does not include a client.
+If you plan to make frequent changes to an app's source code, I recommend you run the app using `nodemon`. That (i.e. nodemon) will relaunch the app when it detects that any changes have been made to the app's source code since the app was last launched.
 
-While the server is running, issue the following instructions using the JavaScript console in Chrome Developer Tools, replacing `localhost` with the real hostname or IP address of the server:
-
-```js
-// Establish a WebSocket connection with the host.
-var ws = new WebSocket('ws://localhost');
-
-// Prepare to display incoming messages on the console.
-ws.addEventListener('message', function (event) {
-    console.log('Client received message: ' + event.data);
-});
+```sh
+# Run the app.
+# If using Linux shell:
+$ PORT=3000 && npx nodemon start
+# If using Windows terminal:
+> set PORT=3000&& npx nodemon start
 ```
 
-You can examine the state of the WebSocket connection by running the following (and comparing the output to [the list of readyState constants on the MDN website](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket#Ready_state_constants)):
+> A note regarding the Windows terminal command: The **absence of whitespace** between the environment variable definition and the pair of ampersands is required, since the environment variable gets set to everything between the equals sign and the ampersand.
 
-```js
-// Read the state of the connection. Manually compare it to the readyState constants on the MDN website.
-ws.readyState
-```
-
-You can send a message via the WebSocket connection by running the following:
-
-```js
-// Send a message via the WebSocket connection.
-ws.send('Hello from the client.');
-```
+Then, in a web browser, visit the app at http://localhost:3000/.
 
 Terminate the app by pressing `Ctrl+C`.
-
-### Aspects of Interest
-
-1. When establishing the WebSocket connection, the client sends one HTTP request to the server. That HTTP request contains specific fields and values in its header. Those fields and values tell the server the client wants to follow the WebSocket protocol instead of the HTTP protocol. (That HTTP request can be seen in the `Network` tab of the Chrome Developer Tools, and in Wireshark).
 
 # Evaluating each app
 
