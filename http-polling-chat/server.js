@@ -20,7 +20,7 @@ var validateMessage = function (message) {
     return message.trim().length > 0;
 };
 
-// Returns the current UTC time sn a string designed to precede a log message.
+// Returns the current UTC time as a string designed to precede a log message.
 var getPrefix = function () {
     var timestamp = (new Date())
         .toISOString()
