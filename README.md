@@ -3,7 +3,7 @@ Real-Time React: An Introduction to Socket.io
 
 ## Introduction
 
-This repository contains several "toy" apps used to demonstrate strategies people have used to achieve real-time, web-based client-server communication. The strategies include HTTP polling, HTTP long polling, and WebSockets.
+This repository contains several proof-of-concept apps used to demonstrate strategies people have used to achieve real-time, web-based client-server communication. The strategies include HTTP polling, HTTP long polling, and WebSockets.
 
 How's this related to socket.io? socket.io chooses between WebSockets, HTTP long polling, and other strategies, depending upon which strategies are supported by the environment in which socket.io is running.
 
